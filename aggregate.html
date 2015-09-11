@@ -33,7 +33,7 @@
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
         <script>
             $.ajax({
-                url: "http://api.weather.com/v2/aggregate/v2loc;v2obs;v2fcstdaily3;v2fcsthourly6;v2astro?geocode=34.06,-84.21&format=json&language=en-US&R2.units=e&R3.units=e&R4.units=e&R5.units=e&R5.days=2&apiKey=tsybhwupcwn4mw55m77euxh6r5pe639b",
+                url: "http://api.weather.com/v2/aggregate/v2loc;v2obs;v2fcstdaily3;v2fcsthourly6;v2astro?geocode=34.06,-84.21&format=json&language=en-US&R2.units=e&R3.units=e&R4.units=e&R5.units=e&R5.days=2&apiKey=[CLIENT-KEY]",
                 dataType: "json",
                 type: "GET",
                 success: function(json) {
@@ -41,7 +41,6 @@
                     $("#wrapper").append("<div id='item'>");
                         $("<div class='address'>" + json.result[0].result.addresses[0].address + "&nbsp;(" + json.result[0].result.addresses[0].postal_code + ")&nbsp;" + json.result[0].result.addresses[0].locality + " ," + json.result[0].result.addresses[0].admin_district + "</div>").appendTo("#item");
                         $("<div class='temp'>" + json.result[1].result.observation.temp + "&deg;F</div>").appendTo("#item");
-//                        $("<div class='feelslike'>Feels Like: " + json.result[1].result.observation.feels_like + "&deg;F</div>").appendTo("#item");
                         $("<div class='phrase'>" + json.result[1].result.observation.wx_phrase + "</div>").appendTo("#item");
                         $("<div class='hilo'>High <span style='color:#0000ff;'>" + json.result[1].result.observation.max_temp + "&deg;</span> | Low <span style='color:#c00;'>" + json.result[1].result.observation.min_temp + "&deg;</span></div>").appendTo("#item");
                     }
@@ -49,5 +48,3 @@
             </script>
         </body>
     </html>
-
-    <!-- aggregate current conditions -->
